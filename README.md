@@ -1,6 +1,6 @@
 # Hi, I'm Vinay Vobbilichetty
 
-**Security Automation Engineer** | MS Cybersecurity @ NC State
+**Security Automation Engineer** | MS Cybersecurity, NC State '25
 
 I build tools that help security teams work smarter - from LLM-powered investigation assistants to self-healing chat bots and automated incident response workflows.
 
@@ -36,7 +36,7 @@ An enterprise-grade security automation platform featuring:
 
 ## Currently
 
-- Pursuing **MS in Cybersecurity** at NC State University
+- **MS in Cybersecurity** from NC State University (May 2025)
 - Building security automation tools
 - Open to opportunities in Security Engineering / Security Automation / Detection Engineering
 
