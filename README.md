@@ -8,17 +8,16 @@ I build tools that help security teams work smarter - from LLM-powered investiga
 
 ## Featured Project
 
-### [Security Operations Platform](https://github.com/vinayvobbili/security-ops-platform)
+### [vllm-mlx — System-prompt KV cache for `stream_chat`](https://github.com/waybarrios/vllm-mlx/pull/523)
 
-An enterprise-grade security automation platform featuring:
+Merged upstream into [vllm-mlx](https://github.com/waybarrios/vllm-mlx), the Apple Silicon LLM server (OpenAI-compatible) that many self-hosted Claude Code / OpenCode setups run behind.
 
-- **30+ Security Tool Integrations** - CrowdStrike, QRadar, Tanium, ServiceNow, and more
-- **LLM-Powered Assistant** - 22 specialized investigation tools using RAG
-- **Self-Healing Bots** - Production Webex bots with WebSocket resilience
-- **Real-Time Dashboard** - SOC metrics, ticket aging, and trend analysis
+- **The bottleneck:** every follow-up turn was re-prefilling the same ~23K-token system+tools prefix. A system-prompt KV cache existed, but only on the multimodal path — pure-LLM models routing through `stream_chat` re-paid the full prefill on every turn.
+- **The fix:** extend the same hash-keyed snapshot logic into the pure-LLM path. HIT restores the cached system prefix and prefills only the new user message. MISS prefills, snapshots, then continues. Anything unexpected (sliding-window models, per-request decode overrides, engine-level features) falls back to the uncached path.
+- **Impact:** ~100s → ~7s on follow-up turns of self-hosted Claude Code. Same model, same prompts, identical outputs.
 
-[![View Project](https://img.shields.io/badge/View_Project-blue?style=for-the-badge&logo=github)](https://github.com/vinayvobbili/security-ops-platform)
-[![Live Docs](https://img.shields.io/badge/Documentation-green?style=for-the-badge&logo=github-pages)](https://vinayvobbili.github.io/security-ops-platform/)
+[![PR #523](https://img.shields.io/badge/PR_%23523-merged-success?style=for-the-badge&logo=github)](https://github.com/waybarrios/vllm-mlx/pull/523)
+[![vllm-mlx](https://img.shields.io/badge/vllm--mlx-upstream-blue?style=for-the-badge&logo=apple)](https://github.com/waybarrios/vllm-mlx)
 
 ---
 
@@ -45,7 +44,6 @@ Engineering notes on distributed LLM platforms, RAG, and self-hosted inference �
 
 ## Currently
 
-- **MS in Computer Science (Cybersecurity track)** from NC State University (May 2025)
 - Building security automation tools
 - Open to opportunities in Security Engineering / Security Automation / Detection Engineering
 
