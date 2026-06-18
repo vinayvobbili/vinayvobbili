@@ -1,6 +1,6 @@
 # Hi, I'm Vinay Vobbilichetty
 
-**Principal Security Automation Engineer** | MS CS, Cybersecurity (NC State '25) | B.Tech CE, IIT Kharagpur
+**Principal Cyber Security AI & Automation Engineer** | MS CS, Cybersecurity (NC State '25) | B.Tech CE, IIT Kharagpur
 
 I build the systems that let security teams move faster — an on-prem LLM investigation-agent fleet, a multi-agent autonomous SOC, self-healing chat bots, and auditable AI pipelines that replace recurring manual SOC work. I ship pieces of that platform back to the community as open-source Python packages.
 
