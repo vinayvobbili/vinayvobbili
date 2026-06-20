@@ -8,8 +8,9 @@ Raleigh, NC · Open to Principal / Staff roles in Security Automation, AI/ML Sec
 
 ---
 
-## Open Source — four packages on PyPI
+## Open Source — five packages on PyPI
 
+- **[aisoc](https://pypi.org/project/aisoc/)** — the vendor-neutral kernel of a multi-agent SOC: an event-sourced bus, a team of role agents (triage, Tier-2, IR Lead, threat intel, hunt, detection engineering, SOC manager), case-memory read models, and a backtest harness. Bring your own LLM, alert source, and tools through three injection seams; runs offline on an in-memory bus.
 - **[iocflow](https://github.com/vinayvobbili/iocflow)** — the full IOC lifecycle as an agentic toolkit: extract, enrich, comment, hunt, block, and an LLM agent. STIX/MISP ingestion, an MCP server, CLI/Docker/GitHub Action distribution, and MITRE ATT&CK coverage-gap assessment.
 - **[detflow](https://github.com/vinayvobbili/detflow)** — a detection-engineering copilot: draft detections from plain English (Sigma or Cortex XQL) and review them like a senior detection engineer. Offline-safe, model-agnostic.
 - **[domainflow](https://github.com/vinayvobbili/domainflow)** — the lookalike-domain lifecycle: generate typo-squats, monitor (CT + WHOIS), score weaponization, and cluster findings into actor campaigns.
