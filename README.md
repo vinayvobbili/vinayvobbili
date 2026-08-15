@@ -16,7 +16,9 @@ Raleigh, NC · Open to Principal / Staff roles in Security Automation, AI/ML Sec
 - **[domainflow](https://github.com/vinayvobbili/domainflow)** — the lookalike-domain lifecycle: generate typo-squats, monitor (CT + WHOIS), score weaponization, and cluster findings into actor campaigns.
 - **[langchain-failover](https://github.com/vinayvobbili/langchain-failover)** — primary/secondary failover for LangChain chat models, with tool-calling preserved across failover.
 
-Plus **[find-evil](https://github.com/vinayvobbili/find-evil)** — an IOC-lifecycle MCP layer that stops a forensic agent from hallucinating indicators (SANS FIND EVIL! hackathon), and **[security-ops-platform](https://github.com/vinayvobbili/security-ops-platform)** — the public mirror of the detection & response platform behind all of the above.
+Plus **[witness](https://github.com/vinayvobbili/witness)** — a DFIR agent that can only report what it can prove a tool said. A finding is admitted only when a deterministic check re-reads the cited tool output and confirms the field, so a claim citing a genuine Volatility run that misstates one row of it never reaches the report. Clone it and run `python demo.py`: no install, no API key, no memory image, standard library only.
+
+It supersedes **[find-evil](https://github.com/vinayvobbili/find-evil)**, the SANS FIND EVIL! hackathon entry that chased the same goal as an MCP layer over Protocol SIFT. **[security-ops-platform](https://github.com/vinayvobbili/security-ops-platform)** is the public mirror of the detection & response platform behind all of the above.
 
 ---
 
