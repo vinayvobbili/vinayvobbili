@@ -11,14 +11,14 @@ Raleigh, NC · Open to Principal / Staff roles in Security Automation, AI/ML Sec
 ## Open Source — [13 packages on PyPI](https://pypi.org/user/vinayvobbili/)
 
 - **[aisoc](https://pypi.org/project/aisoc/)** — the vendor-neutral kernel of a multi-agent SOC: an event-sourced bus, a team of role agents (triage, Tier-2, IR Lead, threat intel, hunt, detection engineering, SOC manager), case-memory read models, and a backtest harness. Bring your own LLM, alert source, and tools through three injection seams; runs offline on an in-memory bus.
-- **[iocflow](https://github.com/vinayvobbili/iocflow)** — the full IOC lifecycle as an agentic toolkit: extract, enrich, comment, hunt, block, and an LLM agent. STIX/MISP ingestion, an MCP server, CLI/Docker/GitHub Action distribution, and MITRE ATT&CK coverage-gap assessment.
-- **[detflow](https://github.com/vinayvobbili/detflow)** — a detection-engineering copilot: draft detections from plain English (Sigma or Cortex XQL) and review them like a senior detection engineer. Offline-safe, model-agnostic.
-- **[domainflow](https://github.com/vinayvobbili/domainflow)** — the lookalike-domain lifecycle: generate typo-squats, monitor (CT + WHOIS), score weaponization, and cluster findings into actor campaigns.
+- **[iocflow](https://pypi.org/project/iocflow/)** — the full IOC lifecycle as an agentic toolkit: extract, enrich, comment, hunt, block, and an LLM agent. STIX/MISP ingestion, an MCP server, CLI/Docker/GitHub Action distribution, and MITRE ATT&CK coverage-gap assessment.
+- **[detflow](https://pypi.org/project/detflow/)** — a detection-engineering copilot: draft detections from plain English (Sigma or Cortex XQL) and review them like a senior detection engineer. Offline-safe, model-agnostic.
+- **[domainflow](https://pypi.org/project/domainflow/)** — the lookalike-domain lifecycle: generate typo-squats, monitor (CT + WHOIS), score weaponization, and cluster findings into actor campaigns.
 - **[langchain-failover](https://github.com/vinayvobbili/langchain-failover)** — primary/secondary failover for LangChain chat models, with tool-calling preserved across failover.
 
 Plus **[witness](https://github.com/vinayvobbili/witness)** — a DFIR agent that can only report what it can prove a tool said. A finding is admitted only when a deterministic check re-reads the cited tool output and confirms the field, so a claim citing a genuine Volatility run that misstates one row of it never reaches the report. Clone it and run `python demo.py`: no install, no API key, no memory image, standard library only.
 
-It supersedes **[find-evil](https://github.com/vinayvobbili/find-evil)**, the SANS FIND EVIL! hackathon entry that chased the same goal as an MCP layer over Protocol SIFT. **[security-ops-platform](https://github.com/vinayvobbili/security-ops-platform)** is the public mirror of the detection & response platform behind all of the above.
+It supersedes **[find-evil](https://github.com/vinayvobbili/find-evil)**, the SANS FIND EVIL! hackathon entry that chased the same goal as an MCP layer over Protocol SIFT.
 
 ---
 
