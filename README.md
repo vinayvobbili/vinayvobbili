@@ -2,7 +2,7 @@
 
 **Principal Cyber Security AI & Automation Engineer** | MS CS, Cybersecurity (NC State '25) | B.Tech CE, IIT Kharagpur
 
-I build the systems that let security teams move faster — an on-prem LLM investigation-agent fleet, a multi-agent autonomous SOC, self-healing chat bots, and auditable AI pipelines that replace recurring manual SOC work. I ship pieces of that platform back to the community as open-source Python packages.
+I build the systems that let security teams move faster — an on-prem LLM investigation-agent fleet, a multi-agent autonomous SOC, self-healing chat bots, and auditable AI pipelines that replace recurring manual SOC work. I also publish open-source Python packages for security teams.
 
 Raleigh, NC · Open to Principal / Staff roles in Security Automation, AI/ML Security, and Security Platform Engineering.
 
@@ -39,8 +39,8 @@ Merged upstream into [vllm-mlx](https://github.com/waybarrios/vllm-mlx), the App
 
 ## Writing — [vinayvobbili.github.io](https://vinayvobbili.github.io/)
 
-- [**SOC-in-a-Box: One LLM, Eight Hats — A Production-Bar AI SOC on a Single GPU**](https://vinayvobbili.github.io/posts/building-soc-in-a-box/) — a LangGraph multi-agent SOC where one on-prem model plays eight specialized roles over an internal message bus, with a red-team agent in the loop.
-- [**Teaching a Reranker the Language of Security Tickets (+41% MRR@10)**](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/) — mining 24K analyst-curated pairs from XSOAR close-notes and lifting held-out MRR@10 from 0.598 to 0.846 over off-the-shelf bge-reranker-v2-m3.
+- [**aisoc: One LLM, Eight Hats — A Production-Bar AI SOC on a Single GPU**](https://vinayvobbili.github.io/posts/building-aisoc/) — a LangGraph multi-agent SOC where one local model plays eight specialized roles over a message bus, with a human approving every containment action.
+- [**Teaching a Reranker the Language of Security Tickets (+41% MRR@10)**](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/) — mining analyst-curated pairs from case close-notes and lifting held-out MRR@10 from 0.598 to 0.846 over off-the-shelf bge-reranker-v2-m3.
 - [**Why Self-Hosted Claude Code Was 15× Slower Than It Should Be**](https://vinayvobbili.github.io/posts/billing-header-kv-cache/) — a rotating billing header quietly busting the prefix-KV cache; two fixes turn 108-second turns into 7-second turns.
 - [**The Day My AI SOC Went Quiet**](https://vinayvobbili.github.io/posts/the-day-my-ai-soc-went-quiet/) — an incident retrospective on silent LLM-failover gaps and how to make them loud.
 - [**Three Chat Template Patterns That Silently Kill Your Prompt Cache**](https://vinayvobbili.github.io/posts/three-chat-template-patterns-kill-prompt-cache/) — the subtle template choices that defeat KV caching on self-hosted inference.
