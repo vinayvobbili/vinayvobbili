@@ -1,59 +1,53 @@
-# Hi, I'm Vinay Vobbilichetty
+# Vinay Vobbilichetty
 
-**Principal Cyber Security AI & Automation Engineer** | MS CS, Cybersecurity (NC State '25) | B.Tech CE, IIT Kharagpur
+**Principal AI Automation Engineer** | MS CS, Cybersecurity (NC State '25) | B.Tech CE, IIT Kharagpur
 
-I build the systems that let security teams move faster — an on-prem LLM investigation-agent fleet, a multi-agent autonomous SOC, self-healing chat bots, and auditable AI pipelines that replace recurring manual SOC work. I also publish open-source Python packages for security teams.
-
-Raleigh, NC · Open to Principal / Staff roles in Security Automation, AI/ML Security, and Security Platform Engineering.
+I build LLM agents for security work that can only report what they can prove. The model proposes, and plain code checks each claim against the tool output it cites before anyone sees it. The rest of my work sits around that idea: investigation agents, RAG, MCP servers, evals, and self-hosted inference with failover across hosts.
 
 ---
 
-## Open Source — [13 packages on PyPI](https://pypi.org/user/vinayvobbili/)
+## Start here
 
-- **[aisoc](https://pypi.org/project/aisoc/)** — the vendor-neutral kernel of a multi-agent SOC: an event-sourced bus, a team of role agents (triage, Tier-2, IR Lead, threat intel, hunt, detection engineering, SOC manager), case-memory read models, and a backtest harness. Bring your own LLM, alert source, and tools through three injection seams; runs offline on an in-memory bus.
-- **[iocflow](https://pypi.org/project/iocflow/)** — the full IOC lifecycle as an agentic toolkit: extract, enrich, comment, hunt, block, and an LLM agent. STIX/MISP ingestion, an MCP server, CLI/Docker/GitHub Action distribution, and MITRE ATT&CK coverage-gap assessment.
-- **[detflow](https://pypi.org/project/detflow/)** — a detection-engineering copilot: draft detections from plain English (Sigma or Cortex XQL) and review them like a senior detection engineer. Offline-safe, model-agnostic.
-- **[domainflow](https://pypi.org/project/domainflow/)** — the lookalike-domain lifecycle: generate typo-squats, monitor (CT + WHOIS), score weaponization, and cluster findings into actor campaigns.
-- **[langchain-failover](https://github.com/vinayvobbili/langchain-failover)** — primary/secondary failover for LangChain chat models, with tool-calling preserved across failover.
+- **[witness](https://github.com/vinayvobbili/witness)**: a DFIR agent that can only report what it can prove a tool said. A finding is admitted only when a deterministic check re-reads the cited tool output and confirms the field, with no second language model in the gate. Scored on 1,083 claims and 119 crafted attacks. Clone it and run `python demo.py`: no install, no API key, standard library only.
+- **[hubtriage](https://github.com/vinayvobbili/hubtriage)**: the same gate on AWS Security Hub findings. A benign verdict has to rest entirely on evidence, and the IAM policy denies the agent the power to close a finding. Validated offline and in CI; not deployed yet.
+- **[shortlist-ai](https://github.com/vinayvobbili/shortlist-ai)**: blind, evidence-cited resume shortlisting, where every quote is checked by code and the score is computed in code, with ranking evals and counterfactual bias tests.
 
-Plus **[witness](https://github.com/vinayvobbili/witness)** — a DFIR agent that can only report what it can prove a tool said. A finding is admitted only when a deterministic check re-reads the cited tool output and confirms the field, so a claim citing a genuine Volatility run that misstates one row of it never reaches the report. Clone it and run `python demo.py`: no install, no API key, no memory image, standard library only.
+## Merged upstream
 
-It supersedes **[find-evil](https://github.com/vinayvobbili/find-evil)**, the SANS FIND EVIL! hackathon entry that chased the same goal as an MCP layer over Protocol SIFT.
+### [vllm-mlx: system-prompt KV cache for `stream_chat`](https://github.com/waybarrios/vllm-mlx/pull/523)
 
----
+[vllm-mlx](https://github.com/waybarrios/vllm-mlx) is the Apple Silicon LLM server (OpenAI-compatible) that many self-hosted Claude Code and OpenCode setups run behind.
 
-## Featured Upstream Contribution
+- **The bottleneck:** every follow-up turn re-prefilled the same ~23K-token system and tools prefix. A KV cache existed, but only on the multimodal path.
+- **The fix:** extend the same hash-keyed snapshot logic to the pure-LLM path, falling back to the uncached path for anything unexpected.
+- **Impact:** ~100s to ~7s on follow-up turns. Same model, same prompts, identical outputs.
 
-### [vllm-mlx — System-prompt KV cache for `stream_chat`](https://github.com/waybarrios/vllm-mlx/pull/523) (merged)
+## More tools
 
-Merged upstream into [vllm-mlx](https://github.com/waybarrios/vllm-mlx), the Apple Silicon LLM server (OpenAI-compatible) that many self-hosted Claude Code / OpenCode setups run behind.
-
-- **The bottleneck:** every follow-up turn re-prefilled the same ~23K-token system+tools prefix. A system-prompt KV cache existed, but only on the multimodal path — pure-LLM models routing through `stream_chat` re-paid the full prefill on every turn.
-- **The fix:** extend the same hash-keyed snapshot logic into the pure-LLM path. HIT restores the cached system prefix and prefills only the new user message; MISS prefills, snapshots, then continues; anything unexpected falls back to the uncached path.
-- **Impact:** ~100s → ~7s on follow-up turns of self-hosted Claude Code. Same model, same prompts, identical outputs.
-
-[![PR #523](https://img.shields.io/badge/PR_%23523-merged-success?style=for-the-badge&logo=github)](https://github.com/waybarrios/vllm-mlx/pull/523)
-[![vllm-mlx](https://img.shields.io/badge/vllm--mlx-upstream-blue?style=for-the-badge&logo=apple)](https://github.com/waybarrios/vllm-mlx)
+- **[refutescan](https://github.com/vinayvobbili/refutescan)**: a code vulnerability scanner where one LLM hunts, a second tries to refute each finding, and every scan runs in a no-network Docker sandbox.
+- **[jobwatch](https://github.com/vinayvobbili/jobwatch)**: watches company job boards and ranks new roles by fit, with a local UI and an MCP server. 1,650 tests.
+- **[langchain-failover](https://github.com/vinayvobbili/langchain-failover)**: failover and cheap-then-frontier tier-splitting for LangChain chat models, with tool-calling preserved.
 
 ---
 
-## Writing — [vinayvobbili.github.io](https://vinayvobbili.github.io/)
+## Writing
 
-- [**aisoc: One LLM, Eight Hats — A Production-Bar AI SOC on a Single GPU**](https://vinayvobbili.github.io/posts/building-aisoc/) — a LangGraph multi-agent SOC where one local model plays eight specialized roles over a message bus, with a human approving every containment action.
-- [**Teaching a Reranker the Language of Security Tickets (+41% MRR@10)**](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/) — mining analyst-curated pairs from case close-notes and lifting held-out MRR@10 from 0.598 to 0.846 over off-the-shelf bge-reranker-v2-m3.
-- [**Why Self-Hosted Claude Code Was 15× Slower Than It Should Be**](https://vinayvobbili.github.io/posts/billing-header-kv-cache/) — a rotating billing header quietly busting the prefix-KV cache; two fixes turn 108-second turns into 7-second turns.
-- [**The Day My AI SOC Went Quiet**](https://vinayvobbili.github.io/posts/the-day-my-ai-soc-went-quiet/) — an incident retrospective on silent LLM-failover gaps and how to make them loud.
-- [**Three Chat Template Patterns That Silently Kill Your Prompt Cache**](https://vinayvobbili.github.io/posts/three-chat-template-patterns-kill-prompt-cache/) — the subtle template choices that defeat KV caching on self-hosted inference.
+More at [vinayvobbili.github.io](https://vinayvobbili.github.io/).
+
+- [**Prove It, or It Doesn't Go in the Report**](https://vinayvobbili.github.io/posts/witness-prove-it-or-it-doesnt-go-in-the-report/): why I rebuilt a losing hackathon entry around an oracle that can't be argued with.
+- [**Why Self-Hosted Claude Code Was 15× Slower Than It Should Be**](https://vinayvobbili.github.io/posts/billing-header-kv-cache/): a rotating billing header quietly busting the prefix-KV cache; two fixes turn 108-second turns into 7-second turns.
+- [**Teaching a Reranker the Language of Security Tickets (+41% MRR@10)**](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/): lifting held-out MRR@10 from 0.598 to 0.846 over off-the-shelf bge-reranker-v2-m3.
+- [**Three Chat Template Patterns That Silently Kill Your Prompt Cache**](https://vinayvobbili.github.io/posts/three-chat-template-patterns-kill-prompt-cache/): the small template choices that defeat KV caching on self-hosted inference.
 
 ---
 
 ## Tech Stack
 
-**Security:** CrowdStrike Falcon · Cortex XSOAR/XSIAM · Tanium · IBM QRadar · ServiceNow · Recorded Future · AttackIQ · Veracode
-
 **AI/ML:** LangChain · LangGraph · Model Context Protocol (MCP) · RAG · ChromaDB · cross-encoder rerankers · mlx-lm on Apple Silicon
 
 **Backend & Infra:** Python · Flask · FastAPI · Docker · systemd · Nginx · GitHub Actions · GitLab CI/CD
+
+**Security:** CrowdStrike Falcon · Cortex XSOAR/XSIAM · Tanium · IBM QRadar · ServiceNow · Recorded Future · AttackIQ · Veracode
 
 **Standards:** MITRE ATT&CK · Sigma · STIX/TAXII · MISP · EPSS · CISA KEV
 
