@@ -30,13 +30,19 @@ I build LLM agents for security work that can only report what they can prove. T
 
 ---
 
+## RAG and retrieval
+
+- **[Reranker fine-tuning](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/)**: relevance labels mined from analyst close-notes, hard negatives filtered, a time-based split. Held-out MRR@10 went from 0.598 to 0.846 over the off-the-shelf bge-reranker-v2-m3.
+- **[Evidence-grounded questionnaire answering](https://vinayvobbili.github.io/posts/attestq-evidence-grounded-questionnaires/)**: cited answers from your own evidence, and a confidence gate that says "insufficient evidence" without calling the model when retrieval is weak.
+
+---
+
 ## Writing
 
 More at [vinayvobbili.github.io](https://vinayvobbili.github.io/).
 
 - [**Prove It, or It Doesn't Go in the Report**](https://vinayvobbili.github.io/posts/witness-prove-it-or-it-doesnt-go-in-the-report/): why I rebuilt a losing hackathon entry around an oracle that can't be argued with.
 - [**Why Self-Hosted Claude Code Was 15× Slower Than It Should Be**](https://vinayvobbili.github.io/posts/billing-header-kv-cache/): a rotating billing header quietly busting the prefix-KV cache; two fixes turn 108-second turns into 7-second turns.
-- [**Teaching a Reranker the Language of Security Tickets (+41% MRR@10)**](https://vinayvobbili.github.io/posts/three-phases-of-rag-quality/): lifting held-out MRR@10 from 0.598 to 0.846 over off-the-shelf bge-reranker-v2-m3.
 - [**Three Chat Template Patterns That Silently Kill Your Prompt Cache**](https://vinayvobbili.github.io/posts/three-chat-template-patterns-kill-prompt-cache/): the small template choices that defeat KV caching on self-hosted inference.
 
 ---
